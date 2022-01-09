@@ -1,8 +1,8 @@
 {
-  "userPrincipalName": "spencer.woo@outlook.com",
+  "userPrincipalName": "lym210119@lym210119e5.onmicrosoft.com",
   "icon": "/icons/128.png",
-  "title": "Spencer's OneDrive",
-  "baseDirectory": "/Public",
+  "title": "65style's OneDrive",
+  "baseDirectory": "/OneIndex",
   "maxItems": 100,
   "googleFontSans": "Inter",
   "googleFontMono": "Fira Mono",
@@ -11,8 +11,7 @@
   ],
   "footer": "Powered by <a href=\"https://github.com/spencerwooo/onedrive-vercel-index\" target=\"_blank\" rel=\"noopener noreferrer\">onedrive-vercel-index</a>. Made with ❤ by SpencerWoo.",
   "protectedRoutes": [
-    "/🌞 Private folder/u-need-a-password",
-    "/🥟 Some test files/Protected route"
+    "/Private"
   ],
   "email": "mailto:spencer.wushangbo@gmail.com",
   "links": [
