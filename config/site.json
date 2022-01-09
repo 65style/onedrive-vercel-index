@@ -13,15 +13,15 @@
   "protectedRoutes": [
     "/Private"
   ],
-  "email": "mailto:spencer.wushangbo@gmail.com",
+  "email": "mailto:lym210119@gmail.com",
   "links": [
-    {
-      "name": "GitHub",
-      "link": "https://github.com/spencerwooo/onedrive-vercel-index"
-    },
-    {
-      "name": "Telegram",
-      "link": "https://t.me/realSpencerWoo"
-    }
+    // {
+    //   "name": "GitHub",
+    //   "link": "https://github.com/spencerwooo/onedrive-vercel-index"
+    // },
+    // {
+    //   "name": "Telegram",
+    //   "link": "https://t.me/realSpencerWoo"
+    // }
   ]
 }
