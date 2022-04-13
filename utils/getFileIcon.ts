@@ -1,4 +1,4 @@
-import { IconPrefix, IconName } from '@fortawesome/fontawesome-common-types'
+import type { IconPrefix, IconName } from '@fortawesome/fontawesome-common-types'
 
 const icons: { [key: string]: [IconPrefix, IconName] } = {
   image: ['far', 'file-image'],
@@ -58,17 +58,32 @@ const extensions = {
   tar: icons.archive,
   zip: icons.archive,
 
-  css: icons.code,
-  py: icons.code,
-  html: icons.code,
-  js: icons.code,
-  ts: icons.code,
   c: icons.code,
-  rb: icons.code,
   cpp: icons.code,
+  js: icons.code,
+  jsx: icons.code,
+  java: icons.code,
+  sh: icons.code,
+  cs: icons.code,
+  py: icons.code,
+  css: icons.code,
+  html: icons.code,
+  ts: icons.code,
+  tsx: icons.code,
+  rs: icons.code,
+  vue: icons.code,
+  json: icons.code,
+  yml: icons.code,
+  yaml: icons.code,
+  toml: icons.code,
 
   txt: icons.text,
   rtf: icons.text,
+  vtt: icons.text,
+  srt: icons.text,
+  log: icons.text,
+  diff: icons.text,
+
   md: icons.markdown,
 
   epub: icons.book,
@@ -90,11 +105,24 @@ export function hasKey<O>(obj: O, key: PropertyKey): key is keyof O {
   return key in obj
 }
 
+export function getRawExtension(fileName: string): string {
+  return fileName.slice(((fileName.lastIndexOf('.') - 1) >>> 0) + 2)
+}
 export function getExtension(fileName: string): string {
-  return fileName.slice(((fileName.lastIndexOf('.') - 1) >>> 0) + 2).toLowerCase()
+  return getRawExtension(fileName).toLowerCase()
 }
 
-export function getFileIcon(fileName: string): [IconPrefix, IconName] {
+export function getFileIcon(fileName: string, flags?: { video?: boolean }): [IconPrefix, IconName] {
   const extension = getExtension(fileName)
-  return hasKey(extensions, extension) ? extensions[extension] : icons.file
+  let icon = hasKey(extensions, extension) ? extensions[extension] : icons.file
+
+  // Files with '.ts' extensions may be TypeScript files or TS Video files, we check for the flag 'video'
+  // to determine which icon to render for '.ts' files.
+  if (extension === 'ts') {
+    if (flags?.video) {
+      icon = icons.video
+    }
+  }
+
+  return icon
 }

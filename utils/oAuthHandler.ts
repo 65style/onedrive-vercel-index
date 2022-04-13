@@ -1,7 +1,7 @@
 import axios from 'axios'
 import CryptoJS from 'crypto-js'
 
-import apiConfig from '../config/api.json'
+import apiConfig from '../config/api.config'
 
 // Just a disguise to obfuscate required tokens (including but not limited to client secret,
 // access tokens, and refresh tokens), used along with the following two functions
@@ -43,7 +43,7 @@ export function extractAuthCodeFromRedirected(url: string): string {
 
   // New URL search parameter
   const params = new URLSearchParams(url.split('?')[1])
-  return params.get('code') || ''
+  return params.get('code') ?? ''
 }
 
 // After a successful authorisation, the code returned from the Microsoft OAuth 2.0 authorization URL
