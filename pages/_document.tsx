@@ -1,5 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import siteConfig from '../config/site.config'
+import TagManager from '../components/TagManager'
 
 class MyDocument extends Document {
   render() {
@@ -13,6 +14,7 @@ class MyDocument extends Document {
           {siteConfig.googleFontLinks.map(link => (
             <link key={link} rel="stylesheet" href={link} />
           ))}
+          <TagManager />
         </Head>
         <body>
           <Main />
