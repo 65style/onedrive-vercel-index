@@ -1,6 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import siteConfig from '../config/site.config'
-import TagManager from '../components/TagManager'
+import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -14,7 +14,17 @@ class MyDocument extends Document {
           {siteConfig.googleFontLinks.map(link => (
             <link key={link} rel="stylesheet" href={link} />
           ))}
-          <TagManager />
+          
+          <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-K9XWCBT8" />
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'GTM-K9XWCBT8');
+            `}
+          </Script>
         </Head>
         <body>
           <Main />
