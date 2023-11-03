@@ -1,6 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import siteConfig from '../config/site.config'
-import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -14,8 +13,21 @@ class MyDocument extends Document {
           {siteConfig.googleFontLinks.map(link => (
             <link key={link} rel="stylesheet" href={link} />
           ))}
+
+          {/* 添加 Google Analytics 脚本 */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-K9XWCBT8"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
           
-          <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-K9XWCBT8" />
+                gtag('config', 'GTM-K9XWCBT8');
+              `,
+            }}
+          ></script>
+          {/* <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-K9XWCBT8" />
           <Script id="google-analytics">
             {`
               window.dataLayer = window.dataLayer || [];
@@ -24,7 +36,7 @@ class MyDocument extends Document {
     
               gtag('config', 'GTM-K9XWCBT8');
             `}
-          </Script>
+          </Script> */}
         </Head>
         <body>
           <Main />
