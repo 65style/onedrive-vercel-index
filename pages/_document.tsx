@@ -14,6 +14,8 @@ class MyDocument extends Document {
             <link key={link} rel="stylesheet" href={link} />
           ))}
 
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4971335259369317" crossOrigin="anonymous"></script>
+
           {/* 添加 Google Analytics 脚本 */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNK1Z98GBV"></script>
           <script
